@@ -1,7 +1,6 @@
 'use strict';
 
 const router = require('./index');
-const ui = require('./ui');
 
 const routes = router.rootNode.children.map((route) => {
   return route.name;
@@ -12,10 +11,7 @@ const registerPaths = () => {
     $(`a[href="#${route}"]`).on('click', (event) => {
       event.preventDefault();
 
-      // router.navigate(route);
-
-      ui.hideAllContent();
-      ui.showContent(path);
+      router.navigate(route);
     });
   });
 };
